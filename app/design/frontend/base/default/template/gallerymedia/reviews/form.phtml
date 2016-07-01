@@ -1,0 +1,83 @@
+<?php
+/**
+ * @category  Magebuzz
+ * @package   Magebuzz_Gallerymedia
+ * @version   0.1.6
+ * @copyright Copyright (c) 2012-2015 http://www.magebuzz.com
+ * @license   http://www.magebuzz.com/terms-conditions/
+ * @var $this Magebuzz_Gallerymedia_Block_Reviews_Form
+ */
+?>
+<?php
+$_mediaId = $this->getParentBlock()->getRequest()->getParam('id');
+$_helper = Mage::helper('gallerymedia');
+?>
+<div class="media-review-form">
+  <form action="<?php echo $this->getUrl('gallerymedia/review/post') ?>" id="mediaReviewForm" method="post">
+    <div class="fieldset">
+      <ul class="form-list">
+        <li class="fields">
+          <table class="vote-table" id="product-review-table">
+            <thead>
+            <tr>
+              <th><span class="nobr"><?php echo $this->__('1 star') ?></span></th>
+              <th><span class="nobr"><?php echo $this->__('2 stars') ?></span></th>
+              <th><span class="nobr"><?php echo $this->__('3 stars') ?></span></th>
+              <th><span class="nobr"><?php echo $this->__('4 stars') ?></span></th>
+              <th><span class="nobr"><?php echo $this->__('5 stars') ?></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><input name="rating" type="radio" class="star" id="rating1" value="20"/></td>
+              <td><input name="rating" type="radio" class="star" id="rating2" value="40"/></td>
+              <td><input name="rating" type="radio" class="star" id="rating3" value="60"
+                         checked="checked"/></td>
+              <td><input name="rating" type="radio" class="star" id="rating4" value="80"/></td>
+              <td><input name="rating" type="radio" class="star" id="rating5" value="100"/></td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="field">
+            <label for="nick_name"><?php echo $this->__('Nick Name') ?> <span
+                class="required">*</span></label><br/>
+            <input name="nick_name" id="nick_name" title="<?php echo $this->__('Nick Name') ?>"
+                   value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserName()) ?>"
+                   class="required-entry input-text" type="text"/>
+          </div>
+          <div class="clear"></div>
+          <div class="field">
+            <label for="email"><?php echo $this->__('Email') ?> <span class="required">*</span></label><br/>
+            <input name="email" id="email" title="<?php echo $this->__('Email') ?>"
+                   value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserEmail()) ?>"
+                   class="required-entry input-text validate-email" type="text"/>
+          </div>
+
+          <div class="clear"></div>
+          <div class="field">
+            <label for="review_title"><?php echo $this->__('Review Title') ?> <span
+                class="required">*</span></label><br/>
+            <input name="review_title" id="review_title" title="<?php echo $this->__('Review Title') ?>"
+                   value="" class="required-entry input-text" type="text"/>
+          </div>
+
+          <div class="clear"></div>
+          <div class="field">
+            <label for="review_content"><?php echo $this->__('Review Content') ?><span
+                class="required">*</span></label><br/>
+            <textarea name="review_content" id="review_content"
+                      title="<?php echo $this->__('Review Content') ?>" class="required-entry input-text"
+                      style="height:120px;width:350px;" cols="50" rows="5"></textarea>
+          </div>
+          <div class="clear"></div>
+        </li>
+      </ul>
+    </div>
+    <div class="buttons-set">
+      <input type="text" name="media_id" id="media_id" value="<?php echo $_mediaId; ?>"
+             style="display:none !important;"/>
+      <button class="button left" title="Add Review" type="submit">
+        <span><span><?php echo $this->__('Add Review') ?></span></span></button>
+    </div>
+  </form>
+</div>

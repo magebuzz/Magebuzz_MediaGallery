@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <gallerymedia_index_index>
+    <reference name="head">
+      <action method="addCss">
+        <stylesheet>magebuzz/gallerymedia/css/jquery.fancybox.css</stylesheet>
+      </action>
+      <action method="addCss">
+        <stylesheet>magebuzz/gallerymedia/css/gallerymedia.css</stylesheet>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jquery-1.7.1.min.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jquery.noconflict.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jwplayer.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/fancybox/jquery.fancybox.js</script>
+      </action>
+    </reference>
+    <reference name="root">
+      <action method="setTemplate">
+        <template>page/1column.phtml</template>
+      </action>
+    </reference>
+    <reference name="content">
+      <block type="gallerymedia/gallery" name="gallerymedia" template="gallerymedia/gallerymedia.phtml">
+        <block type="gallerymedia/albums_list" name="gallerymedia.albums.list" as="albumList"
+               template="gallerymedia/albums/list.phtml"/>
+        <block type="gallerymedia/list" name="gallerymedia.featured.media" as="featuredMedia"
+               template="gallerymedia/list/featured.phtml"/>
+      </block>
+    </reference>
+  </gallerymedia_index_index>
+  <gallerymedia_album_index>
+    <reference name="head">
+      <action method="addCss">
+        <stylesheet>magebuzz/gallerymedia/css/jquery.fancybox.css</stylesheet>
+      </action>
+      <action method="addCss">
+        <stylesheet>magebuzz/gallerymedia/css/gallerymedia.css</stylesheet>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jquery-1.7.1.min.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jquery.noconflict.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jwplayer.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/fancybox/jquery.fancybox.js</script>
+      </action>
+    </reference>
+    <reference name="root">
+      <action method="setTemplate">
+        <template>page/1column.phtml</template>
+      </action>
+    </reference>
+    <reference name="content">
+      <block type="gallerymedia/gallerymedia" name="gallerymedia" template="gallerymedia/gallerymedia.phtml">
+        <block type="gallerymedia/albums_list" name="gallerymedia.albums.list" as="albumList"
+               template="gallerymedia/albums/list.phtml"/>
+      </block>
+    </reference>
+  </gallerymedia_album_index>
+  <gallerymedia_album_view>
+    <reference name="head">
+      <action method="addCss">
+        <stylesheet>magebuzz/gallerymedia/css/jquery.fancybox.css</stylesheet>
+      </action>
+      <action method="addCss">
+        <stylesheet>magebuzz/gallerymedia/css/gallerymedia.css</stylesheet>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jquery-1.7.1.min.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jquery.noconflict.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jwplayer.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/fancybox/jquery.fancybox.js</script>
+      </action>
+    </reference>
+    <reference name="root">
+      <action method="setTemplate">
+        <template>page/1column.phtml</template>
+      </action>
+    </reference>
+    <reference name="content">
+      <block type="gallerymedia/albums_view" name="gallerymedia.albums.view"
+             template="gallerymedia/albums/view.phtml">
+        <block type="gallerymedia/list" name="gallerymedia.list" as="galleryList"
+               template="gallerymedia/list.phtml"/>
+      </block>
+    </reference>
+  </gallerymedia_album_view>
+  <gallerymedia_media_view>
+    <reference name="head">
+      <action method="addCss">
+        <stylesheet>magebuzz/gallerymedia/css/gallerymedia.css</stylesheet>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jquery-1.7.1.min.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jquery.noconflict.js</script>
+      </action>
+      <action method="addJs">
+        <script>magebuzz/gallerymedia/jwplayer.js</script>
+      </action>
+    </reference>
+    <reference name="root">
+      <action method="setTemplate">
+        <template>page/2columns-left.phtml</template>
+      </action>
+    </reference>
+    <reference name="left">
+      <block type="gallerymedia/list" name="gallery.featured.media.sidebar" as="featuredSidebar" before="-"
+             template="gallerymedia/list/featured_sidebar.phtml"/>
+    </reference>
+    <reference name="content">
+      <block type="gallerymedia/view" name="media.view" as="mediaView" template="gallerymedia/view.phtml">
+        <block type="gallerymedia/reviews_list" name="media.review" as="mediaReview"
+               template="gallerymedia/reviews/list.phtml">
+          <block type="gallerymedia/reviews_form" name="product.review.form" as="review_form"
+                 template="gallerymedia/reviews/form.phtml"/>
+        </block>
+      </block>
+    </reference>
+  </gallerymedia_media_view>
+</layout>

@@ -1,0 +1,111 @@
+<?php
+/**
+ * @category  Magebuzz
+ * @package   Magebuzz_Gallerymedia
+ * @version   0.1.6
+ * @copyright Copyright (c) 2012-2015 http://www.magebuzz.com
+ * @license   http://www.magebuzz.com/terms-conditions/
+ * @var $this Magebuzz_Gallerymedia_Block_View
+ */
+?>
+<div class="gallery-details-page">
+  <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+  <?php $_item = $this->getItemfo(); ?>
+  <div class="item-details">
+    <div class="item-title">
+      <div class="item-name">
+        <h2><?php echo $_item->getItemName(); ?></h2>
+        <?php if (Mage::helper('gallerymedia')->showUpdateDate()): ?>
+          <?php $updateTime = new DateTime($_item->getUpdateTime()); ?>
+          <span class="updateTime"><?php echo date_format($updateTime, "F j, Y") ?></span>
+        <?php endif; ?>
+      </div>
+      <?php if (Mage::getStoreConfig('gallerymedia/media_setting/show_social_buttons')): ?>
+        <div class="social-buttons">
+          <div class="facebook-button">
+            <div class="fb-like" data-href="<?php echo $this->getItemUrl($_item->getGalleryItemId()); ?>"
+                 data-send="false" data-layout="button_count" data-width="100"
+                 data-show-faces="false"></div>
+          </div>
+          <div class="twitter-button">
+            <a href="https://twitter.com/share" class="twitter-share-button"
+               data-url="<?php echo $this->getItemUrl($_item->getGalleryItemId()); ?>"
+               data-text="Check out this picture!">Tweet</a>
+            <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = "//platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }
+              }(document, "script", "twitter-wjs");</script>
+          </div>
+        </div>
+        <div id="fb-root"></div>
+        <script>
+          (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+        </script>
+      <?php endif; ?>
+      <?php if (Mage::helper('gallerymedia')->getReviewCount($_item->getGalleryItemId()) > 0): ?>
+        <div class="ratings">
+          <div class="rating-box">
+            <div
+              style="width:<?php echo Mage::helper('gallerymedia')->getRatingSummary($_item->getGalleryItemId()) ?>%"
+              class="rating"></div>
+          </div>
+          <p class="rating-links">
+            (<?php echo Mage::helper('gallerymedia')->getReviewCount($_item->getGalleryItemId()) ?>) reviews
+          </p>
+        </div>
+      <?php endif; ?>
+    </div>
+    <div class="item-desc">
+      <?php if ($_item->getMediaType() == 1): ?>
+        <div class="item-image">
+          <div class="inside">
+            <?php
+            $image_url = Mage::helper("gallerymedia/image")->init($_item)->resize($_item->getItemFile(), 480, 320);
+            ?>
+            <img src="<?php echo $image_url; ?>" title="<?php echo $_item->getItemName(); ?>"
+                 alt="<?php echo $_item->getItemName(); ?>"/>
+          </div>
+        </div>
+      <?php else: ?>
+      <?php $filename = $_item->getItemFile(); ?>
+      <?php $videoURL = $_item->getVideoUrl(); ?>
+      <?php $videoId = Mage::helper('gallerymedia')->getYouTubeIdFromURL($videoURL); ?>
+        <div id="media_player" class="video_container">Loading the player ...</div>
+        <script type="text/javascript">
+          jwplayer("media_player").setup({
+            flashplayer: "<?php echo $this->getJsUrl('magebuzz/gallerymedia/player.swf')?>",
+            file: "<?php if($videoURL != ''):?>http://www.youtube.com/watch?v=<?php echo $videoId?><?php else:?><?php echo Mage::getBaseUrl('media')."gallerymedia/mediafile/".$filename?><?php endif;?>",
+            height: 320,
+            width: 480,
+            controlbar: "over"
+          });
+        </script>
+      <?php endif; ?>
+      <?php if (Mage::helper('gallerymedia')->showMediaDescription() == 1): ?>
+        <?php if ($_item->getItemDescription() != ""): ?>
+          <div class="box-info box-description">
+            <h2><?php echo $this->__('Description') ?></h2>
+            <?php echo $_item->getItemDescription(); ?>
+          </div>
+        <?php endif ?>
+      <?php endif ?>
+      <div class="box-info box-reviews">
+        <h2><?php echo $this->__('Reviews') ?></h2>
+        <?php echo $this->getChildHtml('mediaReview'); ?>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

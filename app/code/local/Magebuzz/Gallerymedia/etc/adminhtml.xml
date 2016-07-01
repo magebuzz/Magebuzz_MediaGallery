@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<config>
+  <menu>
+    <gallerymedia module="gallerymedia">
+      <title>Gallery Media</title>
+      <sort_order>71</sort_order>
+      <children>
+        <gallery_media_album module="gallerymedia">
+          <title>Manage Gallery Albums</title>
+          <sort_order>0</sort_order>
+          <action>adminhtml/galleryalbums</action>
+        </gallery_media_album>
+        <gallery_media_multiple_item module="gallerymedia">
+          <title>Upload Multiple Images</title>
+          <sort_order>1</sort_order>
+          <action>adminhtml/gallerymultipleitems/new</action>
+        </gallery_media_multiple_item>
+        <gallery_media_item module="gallerymedia">
+          <title>Manage Gallery Items</title>
+          <sort_order>2</sort_order>
+          <action>adminhtml/galleryitems</action>
+        </gallery_media_item>
+        <reviews module="gallerymedia">
+          <title>Manage Reviews</title>
+          <sort_order>3</sort_order>
+          <action>adminhtml/reviews</action>
+        </reviews>
+        <configuration module="gallerymedia">
+          <title>Configuration</title>
+          <sort_order>4</sort_order>
+          <action>adminhtml/system_config/edit/section/gallerymedia</action>
+        </configuration>
+      </children>
+    </gallerymedia>
+  </menu>
+  <acl>
+    <resources>
+      <all>
+        <title>Allow Everything</title>
+      </all>
+      <admin>
+        <children>
+          <system>
+            <children>
+              <config>
+                <children>
+                  <gallerymedia translate="title">
+                    <title>Gallerymedia Permission Setting</title>
+                    <sort_order>50</sort_order>
+                  </gallerymedia>
+                </children>
+              </config>
+            </children>
+          </system>
+          <gallerymedia>
+            <title>Gallery Media</title>
+            <sort_order>10</sort_order>
+            <children>
+              <gallery_media_album module="gallerymedia" translate="title">
+                <title>Manage Gallery Albums</title>
+                <sort_order>1</sort_order>
+                <action>adminhtml/galleryalbums</action>
+              </gallery_media_album>
+              <gallery_media_multiple_item module="gallerymedia" translate="title">
+                <title>Upload Multiple Images</title>
+                <sort_order>1</sort_order>
+                <action>adminhtml/gallerymultipleitems/new</action>
+              </gallery_media_multiple_item>
+              <gallery_media_item module="gallerymedia" translate="title">
+                <title>Manage Gallery Items</title>
+                <sort_order>1</sort_order>
+               <action>adminhtml/galleryitems</action>
+              </gallery_media_item>
+              <reviews module="gallerymedia" translate="title">
+                <title>Manage Reviews</title>
+                <sort_order>1</sort_order>
+                <action>adminhtml/reviews</action>
+              </reviews>
+            </children>
+          </gallerymedia>
+        </children>
+      </admin>
+    </resources>
+  </acl>
+</config>

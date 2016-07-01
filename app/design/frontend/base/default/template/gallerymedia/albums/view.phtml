@@ -1,0 +1,40 @@
+<?php
+/**
+ * @category  Magebuzz
+ * @package   Magebuzz_Gallerymedia
+ * @version   0.1.6
+ * @copyright Copyright (c) 2012-2015 http://www.magebuzz.com
+ * @license   http://www.magebuzz.com/terms-conditions/
+ * @var $this Magebuzz_Gallerymedia_Block_Albums_View
+ */
+?>
+
+<div id="messages_gallery_media"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<?php $albumInfo = $this->getAlbumInfo(); ?>
+  <div class="album-info">
+    <div class="info-details">
+      <div class="album-title">
+        <h3><?php echo $albumInfo->getAlbumName(); ?></h3>
+        <?php if (Mage::helper("gallerymedia/albums")->showUpdateDate()): ?>
+          <?php $updateTime = new DateTime($albumInfo->getUpdateTime()); ?>
+          <span class="updateTime"><?php echo date_format($updateTime, "F j, Y") ?></span>
+        <?php endif; ?>
+      </div>
+      <div class="album-desc">
+        <div class="album-image">
+          <div class="inside">
+            <?php
+            $image_url = Mage::helper("gallerymedia/albums")->init($albumInfo)->resize($albumInfo->getAlbumImage(), 240, 180);
+            ?>
+            <img src="<?php echo $image_url; ?>" title="<?php echo $albumInfo->getAlbumName(); ?>"
+                 alt="<?php echo $albumInfo->getAlbumName(); ?>" align="left"/>
+          </div>
+        </div>
+        <?php if (Mage::helper("gallerymedia")->showAlbumDescription() == 1): ?>
+          <p class="desc"><?php echo $albumInfo->getAlbumDescription(); ?></p>
+        <?php endif ?>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+<?php echo $this->getChildHtml('galleryList'); ?>

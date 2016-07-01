@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<config>
+  <tabs>
+    <magebuzz translate="label">
+      <label>Magebuzz Add-Ons</label>
+      <sort_order>400</sort_order>
+    </magebuzz>
+  </tabs>
+  <sections>
+    <gallerymedia translate="label" module="gallerymedia">
+      <label>Gallery Media</label>
+      <tab>magebuzz</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>299</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <general translate="label">
+          <label>General Setting</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>1</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <enabled translate="label comment">
+              <label>Enable Gallery Media</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>1</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </enabled>
+            <gallery_intro translate="label">
+              <label>Gallery Media Introduction</label>
+              <frontend_type>textarea</frontend_type>
+              <sort_order>2</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </gallery_intro>
+            <allow_guest_review translate="label comment">
+              <label>Allow Guest Write Review</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>4</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </allow_guest_review>
+            <media_per_page_values translate="label">
+              <label>Media per Page Allowed Values</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>5</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </media_per_page_values>
+            <media_list_allow_all translate="label">
+              <label>Allow Show All Media</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>6</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </media_list_allow_all>
+          </fields>
+        </general>
+        <album_media_setting translate="label">
+          <label>Album Media Setting</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>2</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <show_title translate="label comment">
+              <label>Show Album Title</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>1</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </show_title>
+            <show_description translate="label comment">
+              <label>Show Album Description</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>2</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </show_description>
+            <album_featured translate="label comment">
+              <label>Featured Album</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>3</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>0</comment>
+            </album_featured>
+            <album_thumb_image_size translate="label">
+              <label>Album Thumbnail Image Size</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>4</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Example:80,80</comment>
+            </album_thumb_image_size>
+            <show_updated_date translate="label comment">
+              <label>Show Album Updated Date</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>5</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </show_updated_date>
+          </fields>
+        </album_media_setting>
+        <media_setting translate="label">
+          <label>Photo, Video Setting</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>3</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <media_box_size translate="label">
+              <label>Thumbnail Size</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Example:200,200</comment>
+            </media_box_size>
+            <preview_video translate="label comment">
+              <label>Preview Video In Media List</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>2</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </preview_video>
+            <show_title translate="label comment">
+              <label>Show Title</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>3</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </show_title>
+            <show_description translate="label comment">
+              <label>Show Description</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>4</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </show_description>
+            <show_updated_date translate="label comment">
+              <label>Show Updated Date</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>5</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </show_updated_date>
+            <show_social_buttons translate="label comment">
+              <label>Show Social Buttons (Facebook, Twitter)</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>6</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </show_social_buttons>
+          </fields>
+        </media_setting>
+      </groups>
+    </gallerymedia>
+  </sections>
+</config>

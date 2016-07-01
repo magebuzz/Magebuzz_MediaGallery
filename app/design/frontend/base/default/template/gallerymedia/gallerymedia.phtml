@@ -1,0 +1,21 @@
+<?php
+/**
+ * @category  Magebuzz
+ * @package   Magebuzz_Gallerymedia
+ * @version   0.1.6
+ * @copyright Copyright (c) 2012-2015 http://www.magebuzz.com
+ * @license   http://www.magebuzz.com/terms-conditions/
+ */
+?>
+<?php $_helper = Mage::helper('gallerymedia'); ?>
+<?php if ($_helper->enableGalleryMedia()): ?>
+  <div class="gallerymedia">
+    <div class="page-title"><h1><?php echo Mage::helper('gallerymedia')->__('Gallery Media') ?></h1></div>
+    <!-- Gallery Introduction -->
+    <?php if ($_helper->getGalleryMediaIntro() != ''): ?>
+      <div class="gallerymedia-intro"><?php echo $_helper->getGalleryMediaIntro(); ?></div>
+    <?php endif; ?>
+    <?php echo $this->getChildHtml('albumList'); ?>
+    <?php echo $this->getChildHtml('featuredMedia'); ?>
+  </div>
+<?php endif; ?>

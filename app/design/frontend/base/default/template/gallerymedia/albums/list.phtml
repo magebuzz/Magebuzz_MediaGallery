@@ -1,0 +1,56 @@
+<?php
+/**
+ * @category  Magebuzz
+ * @package   Magebuzz_Gallerymedia
+ * @version   0.1.6
+ * @copyright Copyright (c) 2012-2015 http://www.magebuzz.com
+ * @license   http://www.magebuzz.com/terms-conditions/
+ * @var $this Magebuzz_Gallerymedia_Block_Albums_List
+ */
+?>
+<?php $albumCollection = $this->getAlbumsMedia(); ?>
+<?php $count = is_array($albumCollection) ? count($albumCollection) : $albumCollection->count(); ?>
+<?php if ($count > 0): ?>
+  <div class="gallery-albums">
+    <h2 class="box-title"><?php echo Mage::helper('gallerymedia')->__('Albums') ?></h2>
+    <?php $_columnCount = 5; ?>
+    <?php $i = 0;
+    foreach ($albumCollection as $album): ?>
+      <?php if ($i++ % $_columnCount == 0): ?>
+        <ul class="albums-grid">
+      <?php endif ?>
+      <li class="item" style="width:<?php echo $this->getThumbnailImageWidth() + 12 ?>px">
+        <div class="album-image" <?php if ($this->getSizeImageHtml()) {
+          echo $this->getSizeImageHtml();
+        } else {
+          echo 'style="width:110px;height:110px;"';
+        } ?>>
+          <p <?php if ($this->getSizeImageHtml()) {
+            echo $this->getSizeImageHtml();
+          } else {
+            echo 'style="width:110px;height:110px;"';
+          } ?>>
+            <a href="<?php echo $this->getMediaAlbumUrl($album->getGalleryAlbumId()) ?>"
+               title="<?php echo $album->getAlbumName(); ?>">
+              <?php $image_url = Mage::helper("gallerymedia/albums")->init($album)->resize($album['album_image'], $this->getThumbnailImageWidth(), $this->getThumbnailImageHeight()); ?>
+              <img src="<?php echo $image_url; ?>" title="<?php echo $album->getAlbumName(); ?>"
+                   alt="<?php echo $album->getAlbumName(); ?>" align="left"/>
+            </a>
+          </p>
+        </div>
+        <h4 class="album-name"><a href="<?php echo $this->getMediaAlbumUrl($album->getGalleryAlbumId()) ?>"
+                                  title="<?php echo $album->getAlbumName(); ?>"><?php echo $album->getAlbumName(); ?></a>
+        </h4>
+        <?php if (Mage::helper("gallerymedia/albums")->showUpdateDate()): ?>
+          <?php $updateTime = new DateTime($album->getUpdatedTime()); ?>
+          <span><?php echo date_format($updateTime, "F j, Y") ?></span>
+        <?php endif; ?>
+      </li>
+      <?php if ($i % $_columnCount == 0 || $i == $count): ?>
+        </ul>
+      <?php endif ?>
+    <?php endforeach; ?>
+  </div>
+<?php else: ?>
+  <p class="note-msg"><?php echo $this->__('There are no album') ?></p>
+<?php endif; ?>
